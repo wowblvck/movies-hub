@@ -1,0 +1,4 @@
+{
+  "extends": ["prettier", "next", "plugin:@conarti/feature-sliced/recommended"],
+  "root": true
+}
