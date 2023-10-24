@@ -1,7 +1,9 @@
+import { Catalog } from '@/widgets/catalog';
+
 export default function Home() {
   return (
-    <main>
-      Test
-    </main>
-  )
+    <div className="container mx-auto">
+      <Catalog />
+    </div>
+  );
 }
