@@ -1,4 +1,4 @@
 {
-  "extends": ["prettier", "next", "plugin:@conarti/feature-sliced/recommended"],
+  "extends": ["prettier", "next", "plugin:@conarti/feature-sliced/recommended", "plugin:tailwindcss/recommended"],
   "root": true
 }
