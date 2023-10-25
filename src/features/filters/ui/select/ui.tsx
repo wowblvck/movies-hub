@@ -19,7 +19,7 @@ export const Select: React.FC<SelectProps> = ({ options, onSelect, ...props }) =
       onChange={handleSelect}
     >
       {options.map((option) => (
-        <option key={option.label} value={option.value} className="font-roboto">
+        <option key={option.label} value={option.value} className="font-roboto font-normal">
           {option.label}
         </option>
       ))}
