@@ -1,11 +1,13 @@
+import { fontFamily } from 'tailwindcss/defaultTheme';
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
       fontFamily: {
-        inter: ['var(--font-inter)'],
-        roboto: ['var(--font-roboto)'],
+        inter: ['Inter', ...fontFamily.serif],
+        roboto: ['Roboto', ...fontFamily.serif],
       },
     },
   },

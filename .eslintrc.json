@@ -1,4 +1,5 @@
 {
-  "extends": ["prettier", "next", "plugin:@conarti/feature-sliced/recommended", "plugin:tailwindcss/recommended"],
+  "plugins": ["effector"],
+  "extends": ["prettier", "next", "plugin:effector/recommended", "plugin:@conarti/feature-sliced/recommended", "plugin:tailwindcss/recommended"],
   "root": true
 }
