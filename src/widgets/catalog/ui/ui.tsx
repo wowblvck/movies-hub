@@ -1,12 +1,21 @@
 'use client';
 
-import { useUnit } from 'effector-react';
+import { useEvent, useUnit } from 'effector-react';
+import React from 'react';
 import { Filters } from '@/features/filters';
 import { MovieItem } from '@/entities/movie/item';
-import { $catalog } from '../model';
+import { Button } from '@/shared/ui/components';
+import { catalogModel } from '../model';
 
 export const Catalog = () => {
-  const data = useUnit($catalog);
+  const data = useUnit(catalogModel.$catalog);
+  const loadMore = useEvent(catalogModel.loadMore);
+  const hasMore = useUnit(catalogModel.$hasMore);
+  const pending = useUnit(catalogModel.$pending);
+
+  const handleShowMore = () => {
+    loadMore();
+  };
 
   return (
     <section className="flex flex-col gap-5 pb-10">
@@ -18,6 +27,11 @@ export const Catalog = () => {
           </li>
         ))}
       </ul>
+      {hasMore && (
+        <Button loading={pending} onClick={handleShowMore}>
+          Показать еще
+        </Button>
+      )}
     </section>
   );
 };
