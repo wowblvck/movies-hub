@@ -577,10 +577,10 @@ export interface Image {
 }
 
 export interface CatalogParams {
-  type: string;
+  // type: string;
   limit: number;
-  genre?: string;
-  rating?: string;
-  sort?: string;
-  year?: string;
+  // genre?: string;
+  // rating?: string;
+  // sort?: string;
+  // year?: string;
 }
