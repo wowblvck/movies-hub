@@ -1,11 +1,11 @@
 import { EffectorNext } from '@effector/next';
 import { allSettled, fork, serialize } from 'effector';
-import { Catalog, pageStarted } from '@/widgets/catalog';
+import { Catalog, catalogModel } from '@/widgets/catalog';
 
 export default async function Home() {
   const scope = fork();
 
-  await allSettled(pageStarted, { scope });
+  await allSettled(catalogModel.catalogPageStarted, { scope });
 
   const values = serialize(scope);
 
