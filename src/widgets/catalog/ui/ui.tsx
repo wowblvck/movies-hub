@@ -1,7 +1,6 @@
 'use client';
 
 import { useEvent, useUnit } from 'effector-react';
-import React from 'react';
 import { Filters } from '@/features/filters';
 import { MovieItem } from '@/entities/movie/item';
 import { Button } from '@/shared/ui/components';

@@ -1,1 +1,1 @@
-export { api as kinopoiskApi } from './kinopoisk';
+export * as kinopoisk from './kinopoisk';

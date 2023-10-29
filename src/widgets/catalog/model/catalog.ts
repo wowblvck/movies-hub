@@ -1,8 +1,7 @@
-import { attach, combine, createEvent, createStore, restore, sample } from 'effector';
-import { kinopoiskApi } from '@/shared/api';
+import { combine, createEvent, createStore, sample } from 'effector';
+import { kinopoisk } from '@/shared/api';
 
-export const catalogPageStarted = createEvent();
-const getCatalogFx = attach({ effect: kinopoiskApi.getCatalog });
+export const catalogPageStarted = createEvent<kinopoisk.types.CatalogParams>();
 
 export const loadMore = createEvent();
 
@@ -12,22 +11,29 @@ export const $limit = createStore(30)
   .on(loadMore, (state) => state + 60)
   .reset(catalogPageStarted);
 
-const $params = combine({ limit: $limit });
+export const $catalog = kinopoisk.api.catalogQuery.$data;
 
-export const $catalog = restore(getCatalogFx, null);
+export const $pageQuery = createStore<kinopoisk.types.CatalogParams | null>(null);
+
+export const $params = combine({ query: $pageQuery, limit: $limit });
+
+export const $pending = kinopoisk.api.catalogQuery.$pending;
+
+sample({
+  clock: catalogPageStarted,
+  target: $pageQuery,
+});
 
 sample({
   clock: [catalogPageStarted, loadMore],
   source: $params,
-  fn: ({ limit }) => ({ limit }),
-  target: getCatalogFx,
+  fn: ({ limit, query }) => ({ ...query, limit }),
+  target: kinopoisk.api.catalogQuery.start,
 });
 
-export const $pending = getCatalogFx.pending;
-
 sample({
-  clock: getCatalogFx.doneData,
+  clock: kinopoisk.api.catalogQuery.finished.success,
   source: $limit,
-  fn: (limit, { total }) => total > limit,
+  fn: (limit, { result }) => result.total > limit,
   target: $hasMore,
 });

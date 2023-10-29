@@ -27,6 +27,12 @@ export const genres: SelectOption[] = [
   { value: GenresEnum.FilmNoir, label: 'Фильм-нуар' },
   { value: GenresEnum.Concert, label: 'Концерт' },
   { value: GenresEnum.Short, label: 'Короткометражка' },
+  { value: GenresEnum.News, label: 'Новости' },
+  { value: GenresEnum.Game, label: 'Игра' },
+  { value: GenresEnum.Musical, label: 'Мюзикл' },
+  { value: GenresEnum.TalkShow, label: 'Ток-шоу' },
+  { value: GenresEnum.Ceremony, label: 'Церемония' },
+  { value: GenresEnum.RealityTV, label: 'Реальное ТВ' },
 ];
 
 export const sort: SelectOption[] = [
