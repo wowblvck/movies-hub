@@ -8,10 +8,6 @@ import { EffectorLoggerAdapter } from '@/shared/logger';
 export const metadata: Metadata = {
   title: 'Movies Hub',
   description: 'Find your movie',
-  viewport: {
-    initialScale: 1,
-    width: 'device-width',
-  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

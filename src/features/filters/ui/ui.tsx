@@ -6,11 +6,11 @@ import { Select } from './select';
 export const Filters = () => {
   return (
     <div className="flex flex-col gap-5 md:flex-row">
-      {filters.map((item) => (
+      {filters.map(({ queryName, ...rest }) => (
         <Select
-          key={item.queryName}
-          options={item.options}
-          onSelect={(option) => console.log(option)}
+          key={queryName}
+          onSelect={(value) => console.log(`[${queryName}]: ${value}`)}
+          {...rest}
         />
       ))}
       <Select className="md:ml-auto" options={sort} onSelect={(value) => console.log(value)} />

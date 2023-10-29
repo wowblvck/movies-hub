@@ -1,14 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { MovieEntity } from '@/shared/api/kinopoisk';
+import { kinopoisk } from '@/shared/api';
 import { sharedConfigRoutes } from '@/shared/config';
 import { minutesToHour } from '@/shared/lib';
 
 const { routes } = sharedConfigRoutes;
 
 type MovieItemProps = {
-  item: MovieEntity;
+  item: kinopoisk.types.MovieEntity;
 };
 
 export const MovieItem: React.FC<MovieItemProps> = ({ item }) => {
@@ -21,7 +21,7 @@ export const MovieItem: React.FC<MovieItemProps> = ({ item }) => {
       <div className="rounded-box relative pt-[150%] after:rounded-box after:absolute after:inset-0 after:block after:border-[1px] after:border-solid after:border-[hsla(0,0%,100%,.1)] after:content-['']">
         {poster && poster.previewUrl && (
           <Image
-            src={poster.previewUrl}
+            src={poster.previewUrl as string}
             alt={`Постер ${name}`}
             fill
             sizes="100%"

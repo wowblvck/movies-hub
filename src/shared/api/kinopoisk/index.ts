@@ -1,2 +1,2 @@
-export * from './types';
-export { api } from './api';
+export * as api from './api';
+export * as types from './types';
