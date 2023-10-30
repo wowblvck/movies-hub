@@ -19,17 +19,23 @@ export const Catalog = () => {
   return (
     <section className="flex flex-col gap-5 pb-10">
       <Filters />
-      <ul className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-        {data?.docs.map((movie) => (
-          <li key={movie.id}>
-            <MovieItem item={movie} />
-          </li>
-        ))}
-      </ul>
-      {hasMore && (
-        <Button loading={pending} onClick={handleShowMore}>
-          Показать еще
-        </Button>
+      {data?.total === 0 ? (
+        <p className="text-center">Ничего не найдено</p>
+      ) : (
+        <>
+          <ul className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+            {data?.docs.map((movie) => (
+              <li key={movie.id}>
+                <MovieItem item={movie} />
+              </li>
+            ))}
+          </ul>
+          {hasMore && (
+            <Button loading={pending} onClick={handleShowMore}>
+              Показать еще
+            </Button>
+          )}
+        </>
       )}
     </section>
   );

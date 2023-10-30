@@ -64,8 +64,15 @@ export const years: SelectOption[] = [
   { value: '0-1959', label: 'до 1959' },
 ];
 
+export enum QueryNamesEnum {
+  Genre = 'genre',
+  Rating = 'rating',
+  Year = 'year',
+  Sort = 'sort',
+}
+
 export const filters = [
-  { label: 'Жанры', queryName: 'genre', options: genres },
-  { label: 'Рейтинг', queryName: 'rating', options: ratings },
-  { label: 'Годы выхода', queryName: 'year', options: years },
+  { label: 'Жанры', queryName: QueryNamesEnum.Genre, options: genres },
+  { label: 'Рейтинг', queryName: QueryNamesEnum.Rating, options: ratings },
+  { label: 'Годы выхода', queryName: QueryNamesEnum.Year, options: years },
 ];

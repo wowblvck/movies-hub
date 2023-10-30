@@ -1,10 +1,12 @@
 import { EffectorNext } from '@effector/next';
 import { allSettled, fork, serialize } from 'effector';
 import { Catalog, catalogModel } from '@/widgets/catalog';
-import { kinopoisk } from '@/shared/api';
+import { sharedConfigRoutes } from '@/shared/config';
+
+export const revalidate = 0;
 
 type PageProps = {
-  searchParams: kinopoisk.types.CatalogParams;
+  searchParams: sharedConfigRoutes.CatalogParams;
 };
 
 export default async function Home({ searchParams }: PageProps) {
