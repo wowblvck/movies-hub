@@ -1,7 +1,8 @@
 import { combine, createEvent, createStore, sample } from 'effector';
 import { kinopoisk } from '@/shared/api';
+import { sharedConfigRoutes } from '@/shared/config';
 
-export const catalogPageStarted = createEvent<kinopoisk.types.CatalogParams>();
+export const catalogPageStarted = createEvent<sharedConfigRoutes.CatalogParams>();
 
 export const loadMore = createEvent();
 
@@ -13,7 +14,7 @@ export const $limit = createStore(30)
 
 export const $catalog = kinopoisk.api.catalogQuery.$data;
 
-export const $pageQuery = createStore<kinopoisk.types.CatalogParams | null>(null);
+export const $pageQuery = createStore<sharedConfigRoutes.CatalogParams | null>(null);
 
 export const $params = combine({ query: $pageQuery, limit: $limit });
 

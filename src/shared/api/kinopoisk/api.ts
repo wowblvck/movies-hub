@@ -1,14 +1,14 @@
+/* eslint @conarti/feature-sliced/absolute-relative: 'off' */
 import { createJsonQuery, declareParams } from '@farfetched/core';
 import { runtypeContract } from '@farfetched/runtypes';
 import qs from 'query-string';
 import { env } from '@/env.mjs';
-// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
+import { sharedConfigRoutes } from '@/shared/config';
 import { getYears } from '@/shared/lib';
 import { DocsMovieRt } from './types';
-import { CatalogParams } from './types';
 
 export const catalogQuery = createJsonQuery({
-  params: declareParams<CatalogParams>(),
+  params: declareParams<sharedConfigRoutes.CatalogParams>(),
   request: {
     method: 'GET',
     url: ({ limit, genre, sort, rating = '1-10', year = getYears() }) => {

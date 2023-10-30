@@ -37,9 +37,9 @@ export const NameRt = rt.Intersect(
 
 export const LogoRt = rt.Record({ url: rt.String.Or(rt.Null) });
 
-export const ItemsRt = rt.Record({ name: rt.String, logo: LogoRt, url: rt.String });
+export const ItemsRt = rt.Record({ name: rt.String.Or(rt.Null), logo: LogoRt, url: rt.String });
 
-export const WatchabilityRt = rt.Record({ items: rt.Array(ItemsRt) });
+export const WatchabilityRt = rt.Record({ items: rt.Array(ItemsRt).Or(rt.Null) });
 
 const MovieEntityRt = rt.Record({
   externalId: ExternalIdRt,
@@ -71,11 +71,3 @@ export const DocsMovieRt = rt.Record({
   page: rt.Number,
   pages: rt.Number,
 });
-
-export type CatalogParams = {
-  limit: number;
-  genre?: string;
-  rating?: string;
-  sort?: string;
-  year?: string;
-};
