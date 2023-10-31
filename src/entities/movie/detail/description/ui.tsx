@@ -37,7 +37,9 @@ export const Description = () => {
     {
       label: 'Бюджет:',
       value:
-        budget && budget.value && `${budget.currency}${Intl.NumberFormat().format(budget.value)}`,
+        budget &&
+        budget.value &&
+        `${budget.currency}${Intl.NumberFormat().format(budget.value).replaceAll(',', ' ')}`,
     },
     {
       label: 'Слоган:',
@@ -57,7 +59,7 @@ export const Description = () => {
       <div className="flex flex-col gap-3">
         {fields.map(
           (field) =>
-            field.value && (
+            !!field.value && (
               <div className="flex" key={field.label}>
                 <p className="w-[160px] whitespace-nowrap font-roboto">{field.label}</p>
                 <div className="flex-1">
