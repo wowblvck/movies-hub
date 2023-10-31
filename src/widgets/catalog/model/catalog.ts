@@ -20,6 +20,8 @@ export const $params = combine({ query: $pageQuery, limit: $limit });
 
 export const $pending = kinopoisk.api.catalogQuery.$pending;
 
+// kinopoisk.api.catalogQuery.$error.watch(console.log);
+
 sample({
   clock: catalogPageStarted,
   target: $pageQuery,
