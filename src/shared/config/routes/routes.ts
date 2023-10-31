@@ -6,6 +6,10 @@ export type CatalogParams = {
   year?: string;
 };
 
+export type MovieParams = {
+  movieId: string;
+};
+
 type Id = number;
 
 export const routes = {

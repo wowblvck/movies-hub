@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 type LogoProps = {
@@ -8,9 +9,9 @@ type LogoProps = {
 export const Logo: React.FC<LogoProps> = ({ children, to }) => {
   return (
     <h1 className="font-inter font-bold">
-      <a className="btn btn-ghost text-xl normal-case" href={to}>
+      <Link className="btn btn-ghost text-xl normal-case" href={to}>
         {children}
-      </a>
+      </Link>
     </h1>
   );
 };

@@ -25,7 +25,8 @@
       "@/shared/*": ["src/shared/*"],
       "@/features/*": ["src/features/*"],
       "@/entities/*": ["src/entities/*"],
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@/public/*": ["public/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
