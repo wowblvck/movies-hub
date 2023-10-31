@@ -2,7 +2,7 @@
 
 import { useEvent, useUnit } from 'effector-react';
 import { Filters } from '@/features/filters';
-import { MovieItem } from '@/entities/movie/item';
+import { MovieItem } from '@/entities/movie';
 import { Button } from '@/shared/ui/components';
 import { catalogModel } from '../model';
 
