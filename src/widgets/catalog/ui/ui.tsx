@@ -3,7 +3,7 @@
 import { useEvent, useUnit } from 'effector-react';
 import { Filters } from '@/features/filters';
 import { MovieItem } from '@/entities/movie';
-import { Button } from '@/shared/ui/components';
+import { Button } from '@/shared/ui';
 import { catalogModel } from '../model';
 
 export const Catalog = () => {

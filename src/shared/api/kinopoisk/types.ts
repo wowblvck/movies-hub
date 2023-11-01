@@ -66,6 +66,29 @@ const MovieEntityRt = rt.Record({
 
 export type MovieEntity = Static<typeof MovieEntityRt>;
 
+const MeiliMovieEntityRt = rt.Record({
+  id: rt.Number,
+  name: rt.String,
+  alternativeName: rt.String,
+  enName: rt.String,
+  names: rt.Array(rt.String),
+  type: rt.String,
+  year: rt.Number,
+  description: rt.String,
+  shortDescription: rt.String,
+  logo: rt.String.Or(rt.Null),
+  poster: rt.String.Or(rt.Null),
+  backdrop: rt.String.Or(rt.Null),
+  rating: rt.Number,
+  votes: rt.Number,
+  movieLength: rt.Number,
+  genres: rt.Array(rt.String),
+  countries: rt.Array(rt.String),
+  releaseYears: rt.Array(rt.Number),
+});
+
+export type MeiliMovieEntity = Static<typeof MeiliMovieEntityRt>;
+
 export const DocsMovieRt = rt.Record({
   docs: rt.Array(MovieEntityRt),
   total: rt.Number,
@@ -74,11 +97,21 @@ export const DocsMovieRt = rt.Record({
   pages: rt.Number,
 });
 
+export const SearchDocsRt = rt.Record({
+  docs: rt.Array(MeiliMovieEntityRt),
+  total: rt.Number,
+  limit: rt.Number,
+  page: rt.Number,
+  pages: rt.Number,
+});
+
+export type SearchDocs = Static<typeof SearchDocsRt>;
+
 export const VideoRt = rt.Record({
   url: rt.String.Or(rt.Null),
   name: rt.String.Or(rt.Null),
   site: rt.String.Or(rt.Null),
-  type: rt.String.Or(rt.Null),
+  type: rt.Optional(rt.String.Or(rt.Null)),
   size: rt.Optional(rt.Number),
 });
 
@@ -92,7 +125,7 @@ export const PersonInMovieRt = rt.Record({
   photo: rt.String.Or(rt.Null),
   name: rt.String.Or(rt.Null),
   enName: rt.String.Or(rt.Null),
-  description: rt.String.Or(rt.Null),
+  description: rt.Optional(rt.String.Or(rt.Null)),
   profession: rt.String,
   enProfession: rt.String,
 });
@@ -210,7 +243,12 @@ export const MovieRt = rt.Record({
   seriesLength: rt.Number.Or(rt.Null),
   isSeries: rt.Boolean,
   audience: rt.Optional(rt.Array(AudienceRt).Or(rt.Null)),
-  facts: rt.Array(FactInMovieRt),
+  facts: rt.Array(FactInMovieRt).Or(rt.Null),
   imagesInfo: rt.Optional(ImagesRt),
   productionCompanies: rt.Array(VendorImageRt),
 });
+
+export type SearchParams = {
+  query: string;
+  page: number;
+};

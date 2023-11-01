@@ -5,7 +5,7 @@ import qs from 'query-string';
 import { env } from '@/env.mjs';
 import { sharedConfigRoutes } from '@/shared/config';
 import { getYears } from '@/shared/lib';
-import { DocsMovieRt, MovieRt } from './types';
+import { DocsMovieRt, MovieRt, SearchDocsRt, SearchParams } from './types';
 
 export const catalogQuery = createJsonQuery({
   params: declareParams<sharedConfigRoutes.CatalogParams>(),
@@ -31,6 +31,28 @@ export const catalogQuery = createJsonQuery({
   },
   response: {
     contract: runtypeContract(DocsMovieRt),
+  },
+});
+
+export const searchByNameQuery = createJsonQuery({
+  params: declareParams<SearchParams>(),
+  request: {
+    method: 'GET',
+    url: ({ query, page }) => {
+      const baseUrl = env.NEXT_PUBLIC_BASE_URL;
+      const queryParams = qs.stringify({
+        query,
+        page,
+        limit: 30,
+      });
+      return `${baseUrl}/v1.2/movie/search?${queryParams}`;
+    },
+    headers: {
+      'X-API-KEY': env.NEXT_PUBLIC_API_TOKEN,
+    },
+  },
+  response: {
+    contract: runtypeContract(SearchDocsRt),
   },
 });
 
