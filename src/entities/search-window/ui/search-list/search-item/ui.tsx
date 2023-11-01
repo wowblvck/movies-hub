@@ -23,7 +23,16 @@ export const SearchItem: React.FC<SearchItemProps> = ({ item }) => {
         className="flex items-center gap-5"
       >
         <div className="relative h-[75px] w-[50px] shrink-0 overflow-hidden rounded-md">
-          {poster && <Image sizes="100%" fill quality={80} alt={`${name} постер`} src={poster} />}
+          {poster && (
+            <Image
+              sizes="100%"
+              fill
+              quality={60}
+              priority={true}
+              alt={`${name} постер`}
+              src={poster}
+            />
+          )}
         </div>
         <div className="flex flex-col">
           <p className="font-roboto text-lg font-bold text-base-100">{name}</p>

@@ -14,7 +14,7 @@ export const SearchWindow = () => {
   return (
     <Modal
       isOpen={toggler.isOpen}
-      className="fixed left-0 top-0 z-10 h-[100vh] w-full overflow-y-auto overflow-x-hidden bg-base-content/95"
+      className="fixed left-0 top-0 z-10 h-[100dvh] w-full overflow-y-auto overflow-x-hidden bg-base-content/95"
     >
       <button onClick={toggler.close} className="btn absolute right-5 top-5">
         Закрыть
