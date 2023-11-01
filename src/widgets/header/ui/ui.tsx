@@ -1,6 +1,6 @@
 import React from 'react';
 import { sharedConfigRoutes } from '@/shared/config';
-import { Logo } from '@/shared/ui/components';
+import { Logo } from '@/shared/ui';
 import { SearchButton } from './search-button';
 
 const { routes } = sharedConfigRoutes;

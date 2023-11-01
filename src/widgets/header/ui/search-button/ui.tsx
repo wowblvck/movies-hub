@@ -1,4 +1,11 @@
+'use client';
+
+import { searchModel } from '@/entities/search-window';
+import { useToggler } from '@/shared/lib';
+
 export const SearchButton = () => {
+  const { open } = useToggler(searchModel.searchToggler);
+
   return (
     <button className="cursor-pointer">
       <svg
@@ -7,6 +14,7 @@ export const SearchButton = () => {
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 20 20"
+        onClick={open}
       >
         <path
           stroke="currentColor"

@@ -8,8 +8,6 @@ export const $movie = kinopoisk.api.movieQuery.$data;
 
 export const $pending = kinopoisk.api.movieQuery.$pending;
 
-// kinopoisk.api.movieQuery.$error.watch(console.log);
-
 sample({
   clock: moviePageStarted,
   target: kinopoisk.api.movieQuery.start,
