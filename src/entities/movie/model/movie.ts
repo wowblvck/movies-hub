@@ -6,8 +6,6 @@ export const moviePageStarted = createEvent<sharedConfigRoutes.MovieParams>();
 
 export const $movie = kinopoisk.api.movieQuery.$data;
 
-export const $pending = kinopoisk.api.movieQuery.$pending;
-
 sample({
   clock: moviePageStarted,
   target: kinopoisk.api.movieQuery.start,

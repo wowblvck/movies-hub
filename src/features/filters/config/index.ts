@@ -1,5 +1,5 @@
 import { GenresEnum, SortEnum } from '@/shared/config/filters';
-import { SelectOption } from '../types';
+import { SelectOption } from '@/shared/ui';
 
 export const genres: SelectOption[] = [
   { value: '', label: 'Все' },

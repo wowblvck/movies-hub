@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react';
 // eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { Header } from '@/widgets/header';
-import { SearchWindow } from '@/entities/search-window';
+import { SearchWindow } from '@/entities/search';
 
 export const BaseLayout = ({ children }: PropsWithChildren) => {
   return (
