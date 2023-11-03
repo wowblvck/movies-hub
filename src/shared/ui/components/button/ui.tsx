@@ -1,18 +1,20 @@
 import React from 'react';
-import { twMerge } from 'tailwind-merge';
+// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
+import { cn } from '@/shared/lib';
 
 type ButtonProps = {
   loading?: boolean;
+  loadingPlaceholder?: string;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ loading, children, className, ...props }, ref) => {
+  ({ loading, children, className, loadingPlaceholder, ...props }, ref) => {
     return (
-      <button className={twMerge('btn', className)} ref={ref} disabled={loading} {...props}>
+      <button className={cn('btn', className)} ref={ref} disabled={loading} {...props}>
         {loading ? (
           <>
             <span className="loading loading-spinner" />
-            Загружаем...
+            {loadingPlaceholder ? loadingPlaceholder : 'Загружаем...'}
           </>
         ) : (
           children
