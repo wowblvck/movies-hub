@@ -1,6 +1,6 @@
 'use client';
 
-import { searchModel } from '@/entities/search-window';
+import { searchModel } from 'src/entities/search';
 import { useToggler } from '@/shared/lib';
 
 export const SearchButton = () => {

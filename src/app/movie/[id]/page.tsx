@@ -1,6 +1,12 @@
 import { EffectorNext } from '@effector/next';
 import { allSettled, fork, serialize } from 'effector';
+import { Comments } from '@/widgets/comments';
+import { commentsModel } from '@/entities/comments';
 import { Description, movieModel, Poster, Title } from '@/entities/movie';
+
+commentsModel.commentsEvent();
+
+export const revalidate = 0;
 
 type PageProps = {
   params: {
@@ -16,8 +22,8 @@ export default async function MoviePage({ params: { id } }: PageProps) {
   const values = serialize(scope);
 
   return (
-    <div className="container mx-auto">
-      <EffectorNext values={values}>
+    <EffectorNext values={values}>
+      <div className="container mx-auto flex flex-col gap-5">
         <section className="flex flex-col items-center gap-5 rounded-xl bg-secondary/5 p-5 lg:flex-row lg:items-start lg:gap-20 lg:p-10">
           <Poster />
           <div className="flex flex-col items-center gap-10 lg:items-start">
@@ -25,7 +31,10 @@ export default async function MoviePage({ params: { id } }: PageProps) {
             <Description />
           </div>
         </section>
-      </EffectorNext>
-    </div>
+        <section className="rounded-xl bg-secondary/5 p-5">
+          <Comments />
+        </section>
+      </div>
+    </EffectorNext>
   );
 }

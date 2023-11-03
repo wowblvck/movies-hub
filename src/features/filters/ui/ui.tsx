@@ -3,9 +3,9 @@
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import qs from 'query-string';
 import React from 'react';
+import { Select } from '@/shared/ui';
 import { filters, QueryNamesEnum, sort } from '../config';
 import { routerParams } from '../lib';
-import { Select } from './select';
 
 export const Filters = () => {
   const router = useRouter();
@@ -20,6 +20,7 @@ export const Filters = () => {
     <div className="flex flex-col gap-5 md:flex-row">
       {filters.map(({ queryName, ...rest }) => (
         <Select
+          className="md:max-w-xs"
           key={queryName}
           value={parsedParams[queryName]}
           optionSelect={(value) => updateQueryParam(queryName, value)}

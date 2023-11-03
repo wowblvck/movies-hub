@@ -25,6 +25,7 @@
       "@/shared/*": ["src/shared/*"],
       "@/features/*": ["src/features/*"],
       "@/entities/*": ["src/entities/*"],
+      "@/prisma/*": ["prisma/*"],
       "@/*": ["src/*"],
       "@/public/*": ["public/*"]
     }
