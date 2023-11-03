@@ -1,5 +1,4 @@
 import * as rt from 'runtypes';
-import { Static } from 'runtypes';
 
 export const ExternalIdRt = rt.Record({
   kpHD: rt.String.Or(rt.Null),
@@ -30,7 +29,7 @@ export const PosterRt = rt.Record({
 
 export const ItemNameRt = rt.Record({ name: rt.String });
 
-export type ItemName = Static<typeof ItemNameRt>;
+export type ItemName = rt.Static<typeof ItemNameRt>;
 
 export const NameRt = rt.Intersect(
   rt.Record({ name: rt.Optional(rt.String) }),
@@ -64,7 +63,7 @@ const MovieEntityRt = rt.Record({
   watchability: WatchabilityRt,
 });
 
-export type MovieEntity = Static<typeof MovieEntityRt>;
+export type MovieEntity = rt.Static<typeof MovieEntityRt>;
 
 const MeiliMovieEntityRt = rt.Record({
   id: rt.Number,
@@ -87,7 +86,7 @@ const MeiliMovieEntityRt = rt.Record({
   releaseYears: rt.Array(rt.Number),
 });
 
-export type MeiliMovieEntity = Static<typeof MeiliMovieEntityRt>;
+export type MeiliMovieEntity = rt.Static<typeof MeiliMovieEntityRt>;
 
 export const DocsMovieRt = rt.Record({
   docs: rt.Array(MovieEntityRt),
@@ -105,7 +104,7 @@ export const SearchDocsRt = rt.Record({
   pages: rt.Number,
 });
 
-export type SearchDocs = Static<typeof SearchDocsRt>;
+export type SearchDocs = rt.Static<typeof SearchDocsRt>;
 
 export const VideoRt = rt.Record({
   url: rt.String.Or(rt.Null),
@@ -130,7 +129,7 @@ export const PersonInMovieRt = rt.Record({
   enProfession: rt.String,
 });
 
-export type PersonInMovie = Static<typeof PersonInMovieRt>;
+export type PersonInMovie = rt.Static<typeof PersonInMovieRt>;
 
 export const ReviewInfoRt = rt.Record({
   count: rt.Number.Or(rt.Null),

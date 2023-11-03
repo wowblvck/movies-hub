@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative
-import { searchModel } from '@/entities/search-window';
+import { searchModel } from 'src/entities/search';
 import { kinopoisk } from '@/shared/api';
 import { sharedConfigRoutes } from '@/shared/config';
 import { useToggler } from '@/shared/lib';

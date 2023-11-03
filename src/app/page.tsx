@@ -17,10 +17,10 @@ export default async function Home({ searchParams }: PageProps) {
   const values = serialize(scope);
 
   return (
-    <div className="container mx-auto">
-      <EffectorNext values={values}>
+    <EffectorNext values={values}>
+      <div className="container mx-auto">
         <Catalog />
-      </EffectorNext>
-    </div>
+      </div>
+    </EffectorNext>
   );
 }
