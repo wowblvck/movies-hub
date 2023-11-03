@@ -2,14 +2,13 @@
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useEvent, useUnit } from 'effector-react';
-import { useRouter } from 'next/navigation';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import z from 'zod';
 import { commentsModel } from '@/entities/comments';
 import { movieModel } from '@/entities/movie';
 import { cn } from '@/shared/lib';
-import { Select } from '@/shared/ui';
+import { Button, Select } from '@/shared/ui';
 import { commentsType } from '../config';
 
 const CommentFormSchema = z
@@ -26,18 +25,26 @@ export const AddComment = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<CommentFormType>({ resolver: zodResolver(CommentFormSchema) });
-
-  const router = useRouter();
 
   const submit = useEvent(commentsModel.submitFrom);
   const movie = useUnit(movieModel.$movie);
 
+  const pending = useUnit(commentsModel.$addPending);
+
+  const success = useUnit(commentsModel.$success);
+
+  React.useEffect(() => {
+    if (!pending && success) {
+      reset();
+    }
+  }, [pending, success]);
+
   const onSubmit = (data: CommentFormType) => {
     if (movie) {
       submit({ movieId: movie.id, ...data });
-      router.refresh();
     }
   };
 
@@ -65,7 +72,9 @@ export const AddComment = () => {
         placeholder="Текст комментария"
         {...register('comment')}
       ></textarea>
-      <button className="btn max-w-xs">Добавить</button>
+      <Button className="max-w-xs" loading={pending} loadingPlaceholder="Добавляем">
+        Добавить
+      </Button>
     </form>
   );
 };

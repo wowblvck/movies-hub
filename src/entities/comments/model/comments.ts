@@ -5,6 +5,10 @@ import { local } from '@/shared/api';
 
 export const submitFrom = createEvent<local.types.CommentParams>();
 
+export const $addPending = local.api.addComment.$pending;
+
+export const $success = local.api.addComment.$succeeded;
+
 sample({
   clock: submitFrom,
   target: local.api.addComment.start,
