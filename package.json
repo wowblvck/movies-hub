@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "@effector/next": "^0.6.1",
-    "@effector/reflect": "^8.3.3",
     "@farfetched/core": "^0.10.5",
     "@farfetched/runtypes": "^0.10.5",
     "@hookform/resolvers": "^3.3.2",
@@ -23,7 +22,6 @@
     "effector-react": "^22.5.4",
     "moment": "^2.29.4",
     "next": "14.0.0",
-    "next-nprogress-bar": "^2.1.2",
     "nextjs-toploader": "^1.6.4",
     "normalize.css": "^8.0.1",
     "patronum": "^1.20.0",
