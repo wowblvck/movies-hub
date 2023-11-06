@@ -4,7 +4,6 @@ import NextTopLoader from 'nextjs-toploader';
 import React from 'react';
 import './styles/index.css';
 import { BaseLayout } from '@/widgets/layouts';
-import { EffectorLoggerAdapter } from '@/shared/logger';
 
 export const metadata: Metadata = {
   title: 'Movies Hub',
@@ -15,8 +14,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ru" data-theme="acid">
       <body>
-        <NextTopLoader />
+        {/* Uncomment for connect to effector logger
         <EffectorLoggerAdapter />
+        */}
+        <NextTopLoader />
         <EffectorNext>
           <BaseLayout>{children}</BaseLayout>
         </EffectorNext>
