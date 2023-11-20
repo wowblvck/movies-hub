@@ -22,19 +22,14 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     return (
       <select
         ref={ref}
-        className={cn('select select-bordered', className)}
+        className={cn('select select-bordered font-roboto font-normal', className)}
         defaultValue={selected.value}
         onChange={handleSelect}
         {...props}
       >
         {options.map((option) => {
           return (
-            <option
-              key={option.label}
-              value={option.value}
-              disabled={option.disabled}
-              className="font-roboto font-normal"
-            >
+            <option key={option.label} value={option.value} disabled={option.disabled}>
               {option.label}
             </option>
           );
