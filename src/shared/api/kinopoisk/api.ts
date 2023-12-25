@@ -23,7 +23,7 @@ export const catalogQuery = createJsonQuery({
         sortField: [sort, 'votes.kp'],
         sortType: ['-1', '-1'],
       });
-      return `${baseUrl}/v1.3/movie?${queryParams}`;
+      return `${baseUrl}/v1.4/movie?${queryParams}`;
     },
     headers: {
       'X-API-KEY': env.NEXT_PUBLIC_API_TOKEN,
@@ -45,7 +45,7 @@ export const searchByNameQuery = createJsonQuery({
         page,
         limit: 30,
       });
-      return `${baseUrl}/v1.2/movie/search?${queryParams}`;
+      return `${baseUrl}/v1.4/movie/search?${queryParams}`;
     },
     headers: {
       'X-API-KEY': env.NEXT_PUBLIC_API_TOKEN,
@@ -62,7 +62,7 @@ export const movieQuery = createJsonQuery({
     method: 'GET',
     url: ({ movieId }) => {
       const baseUrl = env.NEXT_PUBLIC_BASE_URL;
-      return `${baseUrl}/v1.3/movie/${movieId}`;
+      return `${baseUrl}/v1.4/movie/${movieId}`;
     },
     headers: {
       'X-API-KEY': env.NEXT_PUBLIC_API_TOKEN,
