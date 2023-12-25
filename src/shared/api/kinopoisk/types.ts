@@ -43,7 +43,7 @@ export const ItemsRt = rt.Record({ name: rt.String.Or(rt.Null), logo: LogoRt, ur
 export const WatchabilityRt = rt.Record({ items: rt.Array(ItemsRt).Or(rt.Null) });
 
 const MovieEntityRt = rt.Record({
-  externalId: ExternalIdRt,
+  externalId: rt.Optional(ExternalIdRt),
   rating: RatingRt,
   votes: VotesRt,
   movieLength: rt.Number.Or(rt.Null),
@@ -60,7 +60,7 @@ const MovieEntityRt = rt.Record({
   names: rt.Array(NameRt),
   shortDescription: rt.String.Or(rt.Null),
   logo: rt.Optional(LogoRt),
-  watchability: WatchabilityRt,
+  watchability: rt.Optional(WatchabilityRt),
 });
 
 export type MovieEntity = rt.Static<typeof MovieEntityRt>;
@@ -155,7 +155,7 @@ export const FeesRt = rt.Record({
 
 export const PremiereRt = rt.Record({
   country: rt.Optional(rt.String.Or(rt.Null)),
-  world: rt.String.Or(rt.Null),
+  world: rt.Optional(rt.String.Or(rt.Null)),
   russia: rt.Optional(rt.String.Or(rt.Null)),
   digital: rt.Optional(rt.String.Or(rt.Null)),
   cinema: rt.Optional(rt.String.Or(rt.Null)),
@@ -227,11 +227,11 @@ export const MovieRt = rt.Record({
   countries: rt.Array(ItemNameRt),
   persons: rt.Array(PersonInMovieRt),
   reviewInfo: rt.Optional(ReviewInfoRt),
-  seasonsInfo: rt.Array(SeasonInfoRt),
-  budget: CurrencyValueRt,
-  fees: FeesRt,
-  premiere: PremiereRt,
-  similarMovies: rt.Array(LinkedMovieRt),
+  seasonsInfo: rt.Optional(rt.Array(SeasonInfoRt)),
+  budget: rt.Optional(CurrencyValueRt),
+  fees: rt.Optional(FeesRt),
+  premiere: rt.Optional(PremiereRt),
+  similarMovies: rt.Optional(rt.Array(LinkedMovieRt)),
   sequelsAndPrequels: rt.Array(LinkedMovieRt),
   watchability: WatchabilityRt,
   releaseYears: rt.Optional(rt.Array(YearRangeRt)),
@@ -242,9 +242,9 @@ export const MovieRt = rt.Record({
   seriesLength: rt.Number.Or(rt.Null),
   isSeries: rt.Boolean,
   audience: rt.Optional(rt.Array(AudienceRt).Or(rt.Null)),
-  facts: rt.Array(FactInMovieRt).Or(rt.Null),
+  facts: rt.Optional(rt.Array(FactInMovieRt).Or(rt.Null)),
   imagesInfo: rt.Optional(ImagesRt),
-  productionCompanies: rt.Array(VendorImageRt),
+  productionCompanies: rt.Optional(rt.Array(VendorImageRt)),
 });
 
 export type SearchParams = {

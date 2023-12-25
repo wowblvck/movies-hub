@@ -11,7 +11,7 @@ export const catalogQuery = createJsonQuery({
   params: declareParams<sharedConfigRoutes.CatalogParams>(),
   request: {
     method: 'GET',
-    url: ({ limit, genre, sort, rating = '1-10', year = getYears() }) => {
+    url: ({ limit, genre, sort = 'id', rating = '1-10', year = getYears() }) => {
       const baseUrl = env.NEXT_PUBLIC_BASE_URL;
       const queryParams = qs.stringify({
         limit,
